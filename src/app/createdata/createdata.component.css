@@ -1,73 +1,92 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-.pro-head{
-    text-align: center;font-family: 'Roboto Slab', serif;font-size: 28px;
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+.pro-head {
+  text-align: center;
+  font-family: "Roboto Slab", serif;
+  font-size: 28px;
 }
 
-.ng-invalid:not(form).ng-touched{
-    border: 1px solid red;
+.ng-invalid:not(form).ng-touched {
+  border: 1px solid red;
 }
-.err{
-    color: #DC3545;
-    font-size: 13px;
-    
+.err {
+  color: #dc3545;
+  font-size: 13px;
 }
 
 .topnav {
-    
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .topnav-right {
-    float: right;
-  }
-.table-head{
-    font-family: 'Merriweather Sans', sans-serif;
-    text-align: center;
-    font-size: 20px;
-} 
-.table-content{
-    font-family: 'Josefin Sans', sans-serif;
-    text-align: center;
-    font-size: 19px;
+  float: right;
 }
-.add-btn{
-    width: 100px; background-color: #007CFF; color: #FFFFFF; font-weight: 700;
+.table-head {
+  font-family: "Merriweather Sans", sans-serif;
+  text-align: center;
+  font-size: 20px;
 }
-.edit-btn{
-    width: 100px; background-color: #0FA3B9;color: #FFFFFF; font-weight: 700;
+.table-content {
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+  font-size: 19px;
 }
-.delete-btn{
-    width: 100px; background-color: #DD3243; color: #FFFFFF; font-weight: 700;
+.add-btn {
+  width: 100px;
+  background-color: #007cff;
+  color: #ffffff;
+  font-weight: 700;
 }
-.question{
-    font-family: 'Roboto', sans-serif;font-size: 20px;
+.edit-btn {
+  width: 100px;
+  background-color: #0fa3b9;
+  color: #ffffff;
+  font-weight: 700;
 }
-.del-btn{
-    width: 100px; background-color: #DD3243; color: #FFFFFF; font-weight: 700;
+.delete-btn {
+  width: 100px;
+  background-color: #dd3243;
+  color: #ffffff;
+  font-weight: 700;
 }
-.close-btn{
-    background-color: #313131;width: 100px;color: #FFFFFF; font-weight: 700;
+.question {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
 }
-.del-table-1{
-    font-family: 'Josefin Sans', sans-serif;
-    text-align: center;
-    /* font-size: 18px; */
+.del-btn {
+  width: 100px;
+  background-color: #dd3243;
+  color: #ffffff;
+  font-weight: 700;
 }
-.del-table-2{
-    font-family: 'Merriweather Sans', sans-serif;
-    text-align: center;
-    /* font-size: 15px; */
+.close-btn {
+  background-color: #313131;
+  width: 100px;
+  color: #ffffff;
+  font-weight: 700;
 }
-.frm-lbl{
-    font-family: 'Montserrat', sans-serif;
+.del-table-1 {
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+  /* font-size: 18px; */
 }
-.frm-input{
-    font-weight: 500;
+.del-table-2 {
+  font-family: "Merriweather Sans", sans-serif;
+  text-align: center;
+  /* font-size: 15px; */
 }
-.save-btn{
-    width: 100px; background-color:  #007CFF;color: #FFFFFF; font-weight: 700;
+.frm-lbl {
+  font-family: "Montserrat", sans-serif;
+}
+.frm-input {
+  font-weight: 500;
+}
+.save-btn {
+  width: 100px;
+  background-color: #007cff;
+  color: #ffffff;
+  font-weight: 700;
 }

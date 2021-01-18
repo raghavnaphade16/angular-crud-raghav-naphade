@@ -1,325 +1,385 @@
-<div style="margin-top: 2px; padding-top: 10px;" class="container  ">
+<div style="margin-top: 2px; padding-top: 10px" class="container">
   <div class="row">
-    <div style="text-align: center;" class="col-lg-6">
-      <p class="pro-head" >CRUD OPERATION</p>
+    <div style="text-align: center" class="col-lg-6">
+      <p class="pro-head">ANGULAR CRUD OPERATION</p>
     </div>
-    <div  class="col-lg-6">
+    <div class="col-lg-6">
       <div class="topnav">
-      <div class="topnav-right">
-        <button class="btn add-btn" type="button" (click)="openAddNewModal()">Add New</button>
+        <div class="topnav-right">
+          <button class="btn add-btn" type="button" (click)="openAddNewModal()">
+            Add New
+          </button>
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </div>
-<div class="container">    
-        <div style="border: 1px solid;" >
-            <table class="table">
-                <thead>
-                  <tr class="table-head" >
-                    <th>ID</th>
-                    <th>Email</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody *ngFor="let usr of myData; let i=index ">
-                  <tr class="table-content" *ngIf="usr.status =='active'">
-                    
-                    <td><div>{{usr.id}}</div></td>
-                    <td><div>{{usr.email}}</div></td>
-                    <td><div>{{usr.first_name}}</div></td>
-                    <td><div>{{usr.last_name}}</div></td>
-                    <td>
-                      <div class="container-fluid">
-                        <div class="row">
-                          <div  class="col">
-                            <button  class="btn edit-btn" (click)="openEditModal(usr,usr.id)" type="button">Edit</button>  
-                          </div>
-                          <div class="col">
-                            <button class="btn delete-btn" type="button" (click)="openDeleteModal(usr)" >Delete</button>  
-                          </div>
-                        </div>
-                      </div>     
-                    </td>  
-                  </tr>  
-                </tbody>
-            </table>
-        </div>   
+<div class="container">
+  <div style="border: 1px solid">
+    <table class="table">
+      <thead>
+        <tr class="table-head">
+          <th>ID</th>
+          <th>Email</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let usr of myData; let i = index">
+        <tr class="table-content" *ngIf="usr.status == 'active'">
+          <td>
+            <div>{{ usr.id }}</div>
+          </td>
+          <td>
+            <div>{{ usr.email }}</div>
+          </td>
+          <td>
+            <div>{{ usr.first_name }}</div>
+          </td>
+          <td>
+            <div>{{ usr.last_name }}</div>
+          </td>
+          <td>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col">
+                  <button
+                    class="btn edit-btn"
+                    (click)="openEditModal(usr, usr.id)"
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                </div>
+                <div class="col">
+                  <button
+                    class="btn delete-btn"
+                    type="button"
+                    (click)="openDeleteModal(usr)"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <!--Add User  Modal -->
-<div class="modal fade" id="addNewModal" tabindex="-1" role="dialog" aria-labelledby="addNewModal" aria-hidden="true">
+<div
+  class="modal fade"
+  id="addNewModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="addNewModal"
+  aria-hidden="true"
+>
   <div class="modal-dialog" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="addNewModal">Add New User</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              <form name="addNew" [formGroup]="userForm">
-                  <div class="form-group">
-                      <label class="frm-lbl" for="first_name">First Name</label>
-                      <input 
-                      type="text"
-                      formControlName="first_name"
-                      class="form-control frm-input" 
-                      id="first_name" 
-                      name="first_name" 
-                      placeholder="Enter Your First Name " 
-                      required=""
-                      tabindex="0"
-                      [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }"
-                      />
-                      <div
-                        *ngIf="submitted && f.first_name.errors"
-                        class="invalid-feedback"
-                      >
-                        <div *ngIf="f.first_name.errors.required">
-                          First Name is required
-                        </div>
-                      </div>
-                      <div
-                        class="err"
-                        *ngIf="
-                        userForm.get('first_name').errors &&
-                        userForm.get('first_name').dirty &&
-                        userForm.get('first_name').errors.validFchar
-                        "
-                      >
-                        First Name should be in characters only
-                      </div>
-
-                  </div>
-                  <div class="form-group">
-                    <label class="frm-lbl" for="last_name">Last Name</label>
-                    <input 
-                    type="text" 
-                    formControlName="last_name"
-                    class="form-control frm-input" 
-                    id="last_name" 
-                    name="last_name" 
-                    placeholder="Enter Your Last Name "
-                    required=""
-                    [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }"
-                    >
-                    <div
-                        *ngIf="submitted && f.last_name.errors"
-                        class="invalid-feedback">
-                        <div *ngIf="f.last_name.errors.required">
-                          Last Name is required
-                        </div>
-                    </div>
-                      <div
-                        class="err"
-                        *ngIf="
-                        userForm.get('last_name').errors &&
-                        userForm.get('last_name').dirty &&
-                        userForm.get('last_name').errors.validLchar">
-                        Last Name should be in characters only
-                      </div>
-                  
-                  </div>
-                  <div class="form-group">
-                      <label class="frm-lbl" for="email">Email</label>
-                      <input 
-                        type="text"
-                        formControlName="email"
-                        class="form-control frm-input" 
-                        id="email" 
-                        name="email" 
-                        placeholder="Enter Your Email" 
-                        required=""
-                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
-                        >
-                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                          <div *ngIf="f.email.errors.required">Email is required</div>
-                          <div *ngIf="f.email.errors.email">
-                            Email must be a valid email address
-                          </div>
-                        </div>
-                    </div>
-                  
-                  <div class="modal-footer">
-                          <button type="button" class="btn close-btn" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn save-btn" (click)="sendData()">Add New</button>
-                      
-                  </div>
-              </form>
-          </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addNewModal">Add New User</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <form name="addNew" [formGroup]="userForm">
+          <div class="form-group">
+            <label class="frm-lbl" for="first_name">First Name</label>
+            <input
+              type="text"
+              formControlName="first_name"
+              class="form-control frm-input"
+              id="first_name"
+              name="first_name"
+              placeholder="Enter Your First Name "
+              required=""
+              tabindex="0"
+              [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }"
+            />
+            <div
+              *ngIf="submitted && f.first_name.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.first_name.errors.required">
+                First Name is required
+              </div>
+            </div>
+            <div
+              class="err"
+              *ngIf="
+                userForm.get('first_name').errors &&
+                userForm.get('first_name').dirty &&
+                userForm.get('first_name').errors.validFchar
+              "
+            >
+              First Name should be in characters only
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="frm-lbl" for="last_name">Last Name</label>
+            <input
+              type="text"
+              formControlName="last_name"
+              class="form-control frm-input"
+              id="last_name"
+              name="last_name"
+              placeholder="Enter Your Last Name "
+              required=""
+              [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }"
+            />
+            <div
+              *ngIf="submitted && f.last_name.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.last_name.errors.required">
+                Last Name is required
+              </div>
+            </div>
+            <div
+              class="err"
+              *ngIf="
+                userForm.get('last_name').errors &&
+                userForm.get('last_name').dirty &&
+                userForm.get('last_name').errors.validLchar
+              "
+            >
+              Last Name should be in characters only
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="frm-lbl" for="email">Email</label>
+            <input
+              type="text"
+              formControlName="email"
+              class="form-control frm-input"
+              id="email"
+              name="email"
+              placeholder="Enter Your Email"
+              required=""
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+            />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.email">
+                Email must be a valid email address
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn close-btn" data-dismiss="modal">
+              Close
+            </button>
+            <button type="submit" class="btn save-btn" (click)="sendData()">
+              Add New
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 
 <!--Edit User  Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+<div
+  class="modal fade"
+  id="editModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="editModal"
+  aria-hidden="true"
+>
   <div class="modal-dialog" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="editModal">Edit User</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              <form name="editUser" [formGroup]="userForm">
-                <div class="form-group">
-                  <label class="frm-lbl" for="id">ID</label>
-                  <input 
-                    type="text"
-                    formControlName="id"
-                    class="form-control frm-input" 
-                    id="id" 
-                    name="id"
-                    [(ngModel)]="usrId" 
-                    disabled
-                    
-                    >
-                </div>
-              
-                  <div class="form-group">
-                      <label class="frm-lbl" for="first_name">First Name</label>
-                      <input 
-                      type="text"
-                      formControlName="first_name"
-                      class="form-control frm-input" 
-                      id="first_name" 
-                      name="first_name" 
-                      placeholder="Enter Your First Name " 
-                      required=""
-                      tabindex="0"
-                      [(ngModel)]="fname" 
-                      
-                      [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }"
-                      />
-                      <div
-                        *ngIf="submitted && f.first_name.errors"
-                        class="invalid-feedback"
-                      >
-                        <div *ngIf="f.first_name.errors.required">
-                          First Name is required
-                        </div>
-                      </div>
-                      <div
-                        class="err"
-                        *ngIf="
-                        userForm.get('first_name').errors &&
-                        userForm.get('first_name').dirty &&
-                        userForm.get('first_name').errors.validFchar
-                        "
-                      >
-                        First Name should be in characters only
-                      </div>
-
-                  </div>
-                  <div class="form-group">
-                    <label class="frm-lbl" for="last_name">Last Name</label>
-                    <input 
-                    type="text" 
-                    formControlName="last_name"
-                    class="form-control frm-input" 
-                    id="last_name" 
-                    name="last_name" 
-                    placeholder="Enter Your Last Name "
-                    required=""
-                    [(ngModel)]="lname"
-                    [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }"
-                    >
-                    <div
-                        *ngIf="submitted && f.last_name.errors"
-                        class="invalid-feedback">
-                        <div *ngIf="f.last_name.errors.required">
-                          Last Name is required
-                        </div>
-                    </div>
-                      <div
-                        class="err"
-                        *ngIf="
-                        userForm.get('last_name').errors &&
-                        userForm.get('last_name').dirty &&
-                        userForm.get('last_name').errors.validLchar">
-                        Last Name should be in characters only
-                      </div>
-                  
-                  </div>
-                  <div class="form-group">
-                      <label class="frm-lbl" for="email">Email</label>
-                      <input 
-                        type="text"
-                        formControlName="email"
-                        class="form-control frm-input" 
-                        id="email" 
-                        name="email" 
-                        placeholder="Enter Your Email" 
-                        required=""
-                        [(ngModel)]="usrEmail"
-                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
-                        >
-                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                          <div *ngIf="f.email.errors.required">Email is required</div>
-                          <div *ngIf="f.email.errors.email">
-                            Email must be a valid email address
-                          </div>
-                        </div>
-                    </div>
-                  
-                  <div class="modal-footer">
-                          <button type="button" class="btn close-btn" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn save-btn" (click)="editData()" >Save</button>
-                      
-                  </div>
-              </form>
-          </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModal">Edit User</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-  </div>
-</div>
-
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="deleteModal">Edit User</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
+      <div class="modal-body">
+        <form name="editUser" [formGroup]="userForm">
+          <div class="form-group">
+            <label class="frm-lbl" for="id">ID</label>
+            <input
+              type="text"
+              formControlName="id"
+              class="form-control frm-input"
+              id="id"
+              name="id"
+              [(ngModel)]="usrId"
+              disabled
+            />
           </div>
-          <div class="modal-body">
-            <div class="container">
-              
-              <p class="question">Do you want to delete this record?</p>
-              <table class="table">
-                <thead>
-                  <tr class="del-table-1">
-                    <th>ID</th>
-                    <th>Email</th>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="warning del-table-2">
-                    <td>{{this.usrId}}</td>
-                    <td>{{this.usrEmail}}</td>
-                    <td>{{this.fname}}</td>
-                    <td>{{this.lname}}</td>
-                  </tr>
-              
-                </tbody>
-              </table>
+
+          <div class="form-group">
+            <label class="frm-lbl" for="first_name">First Name</label>
+            <input
+              type="text"
+              formControlName="first_name"
+              class="form-control frm-input"
+              id="first_name"
+              name="first_name"
+              placeholder="Enter Your First Name "
+              required=""
+              tabindex="0"
+              [(ngModel)]="fname"
+              [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }"
+            />
+            <div
+              *ngIf="submitted && f.first_name.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.first_name.errors.required">
+                First Name is required
+              </div>
             </div>
-            
+            <div
+              class="err"
+              *ngIf="
+                userForm.get('first_name').errors &&
+                userForm.get('first_name').dirty &&
+                userForm.get('first_name').errors.validFchar
+              "
+            >
+              First Name should be in characters only
+            </div>
           </div>
+          <div class="form-group">
+            <label class="frm-lbl" for="last_name">Last Name</label>
+            <input
+              type="text"
+              formControlName="last_name"
+              class="form-control frm-input"
+              id="last_name"
+              name="last_name"
+              placeholder="Enter Your Last Name "
+              required=""
+              [(ngModel)]="lname"
+              [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }"
+            />
+            <div
+              *ngIf="submitted && f.last_name.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.last_name.errors.required">
+                Last Name is required
+              </div>
+            </div>
+            <div
+              class="err"
+              *ngIf="
+                userForm.get('last_name').errors &&
+                userForm.get('last_name').dirty &&
+                userForm.get('last_name').errors.validLchar
+              "
+            >
+              Last Name should be in characters only
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="frm-lbl" for="email">Email</label>
+            <input
+              type="text"
+              formControlName="email"
+              class="form-control frm-input"
+              id="email"
+              name="email"
+              placeholder="Enter Your Email"
+              required=""
+              [(ngModel)]="usrEmail"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+            />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.email">
+                Email must be a valid email address
+              </div>
+            </div>
+          </div>
+
           <div class="modal-footer">
-            <button type="button" class="btn close-btn" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn  del-btn" (click)="deleteData()" >Yes</button>
+            <button type="button" class="btn close-btn" data-dismiss="modal">
+              Close
+            </button>
+            <button type="submit" class="btn save-btn" (click)="editData()">
+              Save
+            </button>
           </div>
+        </form>
       </div>
+    </div>
   </div>
 </div>
 
-
-  
+<div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="deleteModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModal">Edit User</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <p class="question">Do you want to delete this record?</p>
+          <table class="table">
+            <thead>
+              <tr class="del-table-1">
+                <th>ID</th>
+                <th>Email</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="warning del-table-2">
+                <td>{{ this.usrId }}</td>
+                <td>{{ this.usrEmail }}</td>
+                <td>{{ this.fname }}</td>
+                <td>{{ this.lname }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn close-btn" data-dismiss="modal">
+          Close
+        </button>
+        <button type="submit" class="btn del-btn" (click)="deleteData()">
+          Yes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
