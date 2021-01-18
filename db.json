@@ -1,0 +1,102 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "first_name": "Shubhamkar",
+      "last_name": "Zare",
+      "email": "donaldtrump@gmail.com",
+      "status": "inactive"
+    },
+    {
+      "id": 2,
+      "first_name": "DonaldAHGAHGAH",
+      "last_name": "Trumpasasasas",
+      "email": "donaldtrump@gmail.com",
+      "status": "inactive"
+    },
+    {
+      "id": 3,
+      "first_name": "TFAhh",
+      "last_name": "HAHBSHasasas",
+      "email": "ragnap99@gmail.com",
+      "status": "inactive"
+    },
+    {
+      "id": 4,
+      "first_name": "RaghavHarmonium",
+      "last_name": "NaphadeS",
+      "email": "ragnap9954544@gmail.com",
+      "status": "active"
+    },
+    {
+      "id": 5,
+      "first_name": "Narendra",
+      "last_name": "Modi",
+      "email": "nm@pmo.com",
+      "status": "active"
+    },
+    {
+      "id": 6,
+      "first_name": "Rahul",
+      "last_name": "Gandhi",
+      "email": "raga@inc.com",
+      "status": "active"
+    },
+    {
+      "id": 7,
+      "first_name": "Amit",
+      "last_name": "Shah",
+      "email": "as@hm.com",
+      "status": "active"
+    },
+    {
+      "id": 8,
+      "first_name": "Rahul",
+      "last_name": "Dravid",
+      "email": "rd@cricket.com",
+      "status": "active"
+    },
+    {
+      "id": 9,
+      "first_name": "omkar",
+      "last_name": "sabne",
+      "email": "os@icici.com",
+      "status": "active"
+    },
+    {
+      "id": 10,
+      "first_name": "Anup",
+      "last_name": "Shah",
+      "email": "as@gmail.com",
+      "status": "active"
+    },
+    {
+      "id": 11,
+      "first_name": "Deepen",
+      "last_name": "Kakade",
+      "email": "deppk1@gmail.com",
+      "status": "inactive"
+    },
+    {
+      "id": 12,
+      "first_name": "Donald",
+      "last_name": "Tatya",
+      "email": "dt@wh.com",
+      "status": "active"
+    },
+    {
+      "id": 13,
+      "first_name": "Bapu",
+      "last_name": "ANANN",
+      "email": "ba@gmail.com",
+      "status": "active"
+    },
+    {
+      "id": 14,
+      "first_name": "Raghav",
+      "last_name": "Naphade",
+      "email": "ragnap99@gmail.com",
+      "status": "active"
+    }
+  ]
+}
